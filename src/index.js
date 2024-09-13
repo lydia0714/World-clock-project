@@ -5,7 +5,7 @@ let losAngelesDateElement = document.querySelector("#los-angeles .date");
 let losAngelesTime = moment ().tz("America/Los_Angeles");
 
 losAngelesDateElement.innerHTML = losAngelesTime.format ("MMMM DD YYYY");
-losAngelesTimeElement.innerHTML = losAngelesTime.format("h:mm:ss[<small>]A[</small>]"
+losAngelesTimeElement.innerHTML = losAngelesTime.format("h:mm:ss:SSS[<small>]A[</small>]"
 );
 
 let sydneyElement = document.querySelector("#sydney");
@@ -14,7 +14,7 @@ let sydneyDateElement = document.querySelector("#sydney .date");
 let sydneyTime = moment ().tz("Oceania/Sydney");
 
 sydneyDateElement.innerHTML = sydneyTime.format ("MMMM DD YYYY");
-sydneyTimeElement.innerHTML = sydneyTime.format("h:mm:ss[<small>]A[</small>]"
+sydneyTimeElement.innerHTML = sydneyTime.format("h:mm:ss:SSS[<small>]A[</small>]"
 );
 }
 
@@ -32,12 +32,13 @@ citiesElement.innerHTML = `
       <h2>${cityName}</h2>
       <div class="date">${cityTime.format("MMMM DD YYYY")}</div>
     </div>
-      <div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format("A")}</small></div>
-    </div>`;
-
+      <div class="time">${cityTime.format("h:mm:ss:SSS")} <small>${cityTime.format("A")}</small></div>
+    </div>
+    <a href ="/">All cities</a>
+    `;
 }
 updateTime();
-setInterval(updateTime, 1000);
+setInterval(updateTime, 1);
 
 let citiesSelectElement = document.querySelector ("#city")
 citiesSelectElement.addEventListener("change", updateCity)
